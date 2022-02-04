@@ -1,0 +1,28 @@
+pipeline {
+    agent none
+
+    stages {
+    
+        stage('Test') {
+        
+            agent {
+                node { label 'test' }
+            }
+            
+            steps {
+                echo'questo è un test'
+            }
+        }
+        
+        stage('Deploy') {
+        
+            agent {
+                node { label 'production' }
+            }
+            
+            steps {
+                echo'questo è un production'
+            }
+        }
+    }
+}
